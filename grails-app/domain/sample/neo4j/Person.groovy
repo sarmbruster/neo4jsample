@@ -1,5 +1,8 @@
 package sample.neo4j
 
+import groovy.transform.ToString
+
+@ToString(includes='name')
 class Person {
 
     String name
@@ -7,6 +10,7 @@ class Person {
     static hasMany = [ friends: Person ]
 
     static constraints = {
+        //friends nullable: true
     }
 
     @Override
