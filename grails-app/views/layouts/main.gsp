@@ -22,7 +22,7 @@
             <div id="appTitle">Neo4j sample app</div>
         </div>
 		<g:layoutBody/>
-		<div class="footer" role="contentinfo"></div>
+		<div class="footer" role="contentinfo">hacked by Stefan Armbruster (stefan@armbruster-it.de)</div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 		<g:javascript library="application"/>
         <r:layoutResources />
