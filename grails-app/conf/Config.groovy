@@ -66,13 +66,13 @@ environments {
 }
 
 // log4j configuration
-log4j = {
+log4j = { root ->
     // Example of changing the log pattern for the default console
     // appender:
     //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
+    appenders {
+        console name:'stdout', layout:pattern(conversionPattern: '%r [%t] %-5p %c %x - %m%n')
+    }
 
     error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
            'org.codehaus.groovy.grails.web.pages', //  GSP
@@ -85,7 +85,14 @@ log4j = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
-    debug 'org.springframework.datastore',
-            'grails.gorm',
-            'org.grails.datastore'
+    warn   'org.apache.commons',
+           'org.apache.tomcat',
+           'org.apache.catalina'
+    debug  'org.springframework.datastore',
+           'grails.gorm',
+           'org.grails.datastore',
+           'org.neo4j.server',
+            'org.mortbay.jetty'
+
+    root.level = org.apache.log4j.Level.WARN
 }

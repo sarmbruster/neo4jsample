@@ -20,12 +20,29 @@ grails.project.dependency.resolution = {
         //flatDir name:'myRepo', dirs:'/abc/def'
         mavenLocal()
         mavenCentral()
+        mavenRepo 'http://m2.neo4j.org/releases'
+        mavenRepo 'http://tinkerpop.com/maven2'
         //mavenRepo "http://snapshots.repository.codehaus.org"
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
     }
     dependencies {
+
+        compile(group:"org.neo4j.app", name:"neo4j-server", version:"1.5") {
+            excludes "slf4j-jdk14"
+            excludes "log4j-over-slf4j"
+            excludes "stax-api"
+        }
+        /*runtime(group:"org.neo4j.app", name:"neo4j-server", version:"1.5", branch:"static-web") {
+            excludes "slf4j-jdk14"
+            excludes "log4j-over-slf4j"
+            excludes "stax-api"
+        } */
+        runtime('com.sun.jersey:jersey-bundle:1.9') {
+            excludes "xml-apis"
+        }
+
         /* uncomment the following block to use neo4j via rest */
         /*def neo4jRestExcludes = {
             excludes  "lucene-core"

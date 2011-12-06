@@ -58,9 +58,7 @@
           <root url="jar://$DOTGRAILS$/ivy-cache/org.springframework/spring-aspects/jars/spring-aspects-3.1.0.RC2.jar!/" />
           <root url="jar://$DOTGRAILS$/ivy-cache/org.springframework/spring-aop/jars/spring-aop-3.1.0.RC2.jar!/" />
           <root url="jar://$DOTGRAILS$/ivy-cache/org.springframework/spring-core/jars/spring-core-3.1.0.RC2.jar!/" />
-          <root url="jar://$DOTGRAILS$/ivy-cache/javax.persistence/persistence-api/jars/persistence-api-1.0.jar!/" />
           <root url="jar://$DOTGRAILS$/ivy-cache/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.6.2.jar!/" />
-          <root url="jar://$DOTGRAILS$/ivy-cache/commons-logging/commons-logging/jars/commons-logging-1.1.1.jar!/" />
           <root url="jar://$DOTGRAILS$/ivy-cache/org.grails/grails-datastore-web/jars/grails-datastore-web-1.0.0.RC3.jar!/" />
           <root url="jar://$DOTGRAILS$/ivy-cache/org.grails/grails-datastore-gorm-neo4j/jars/grails-datastore-gorm-neo4j-1.0.0.RC3.jar!/" />
           <root url="jar://$DOTGRAILS$/ivy-cache/org.neo4j/neo4j-jmx/jars/neo4j-jmx-1.5.jar!/" />
@@ -85,15 +83,10 @@
           <root url="jar://$DOTGRAILS$/ivy-cache/commons-dbcp/commons-dbcp/jars/commons-dbcp-1.4.jar!/" />
           <root url="jar://$DOTGRAILS$/ivy-cache/oro/oro/jars/oro-2.0.8.jar!/" />
           <root url="jar://$DOTGRAILS$/ivy-cache/commons-fileupload/commons-fileupload/jars/commons-fileupload-1.2.2.jar!/" />
-          <root url="jar://$DOTGRAILS$/ivy-cache/asm/asm/jars/asm-3.1.jar!/" />
           <root url="jar://$DOTGRAILS$/ivy-cache/cglib/cglib/jars/cglib-2.2.jar!/" />
           <root url="jar://$DOTGRAILS$/ivy-cache/org.aspectj/aspectjrt/jars/aspectjrt-1.6.10.jar!/" />
           <root url="jar://$DOTGRAILS$/ivy-cache/org.aspectj/aspectjweaver/jars/aspectjweaver-1.6.10.jar!/" />
           <root url="jar://$DOTGRAILS$/ivy-cache/org.grails/grails-datastore-gorm-plugin-support/jars/grails-datastore-gorm-plugin-support-1.0.0.RC3.jar!/" />
-          <root url="jar://$DOTGRAILS$/ivy-cache/junit/junit/jars/junit-4.8.1.jar!/" />
-          <root url="jar://$DOTGRAILS$/ivy-cache/org.springframework/spring-test/jars/spring-test-3.0.5.RELEASE.jar!/" />
-          <root url="jar://$DOTGRAILS$/ivy-cache/org.grails/grails-test/jars/grails-test-1.3.7.jar!/" />
-          <root url="jar://$DOTGRAILS$/ivy-cache/javassist/javassist/jars/javassist-3.12.0.GA.jar!/" />
           <root url="jar://$DOTGRAILS$/ivy-cache/org.grails/grails-datastore-gorm-test/jars/grails-datastore-gorm-test-1.0.0.RC3.jar!/" />
           <root url="jar://$DOTGRAILS$/ivy-cache/org.springframework/spring-test/jars/spring-test-3.1.0.RC2.jar!/" />
           <root url="jar://$DOTGRAILS$/ivy-cache/junit/junit/jars/junit-4.10.jar!/" />
@@ -115,6 +108,40 @@
           <root url="jar://$DOTGRAILS$/ivy-cache/org.apache.ant/ant-junit/jars/ant-junit-1.8.2.jar!/" />
           <root url="jar://$DOTGRAILS$/ivy-cache/org.apache.ant/ant-launcher/jars/ant-launcher-1.8.2.jar!/" />
           <root url="jar://$DOTGRAILS$/ivy-cache/org.apache.ant/ant/jars/ant-1.8.2.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/org.codehaus.groovy/groovy/jars/groovy-1.8.2.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/com.tinkerpop/pipes/jars/pipes-0.8.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/org.codehaus.jettison/jettison/bundles/jettison-1.3.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/com.tinkerpop.blueprints/blueprints-core/jars/blueprints-core-1.0.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/com.tinkerpop/gremlin/jars/gremlin-1.3.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/org.codehaus.jackson/jackson-mapper-asl/jars/jackson-mapper-asl-1.8.3.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/org.codehaus.jackson/jackson-core-asl/jars/jackson-core-asl-1.8.3.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/org.codehaus.jackson/jackson-jaxrs/jars/jackson-jaxrs-1.8.3.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/com.sun.jersey/jersey-server/bundles/jersey-server-1.9.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/org.mortbay.jetty/servlet-api/jars/servlet-api-2.5-20081211.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/org.mortbay.jetty/jetty-util/jars/jetty-util-6.1.25.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/org.mortbay.jetty/jetty/jars/jetty-6.1.25.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/commons-digester/commons-digester/jars/commons-digester-1.8.1.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/commons-beanutils/commons-beanutils-core/jars/commons-beanutils-core-1.8.0.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/commons-logging/commons-logging/jars/commons-logging-1.1.1.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/commons-configuration/commons-configuration/jars/commons-configuration-1.6.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/javax.ws.rs/jsr311-api/jars/jsr311-api-1.1.1.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/org.neo4j/server-api/jars/server-api-1.5.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/org.neo4j.app/neo4j-server/jars/neo4j-server-1.5.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/org.apache.servicemix.bundles/org.apache.servicemix.bundles.jline/bundles/org.apache.servicemix.bundles.jline-0.9.94_1.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/org.neo4j/neo4j-shell/jars/neo4j-shell-1.5.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/org.jvnet/mimepull/jars/mimepull-1.6.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/com.sun.jersey.contribs/jersey-multipart/jars/jersey-multipart-1.9.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/org.rrd4j/rrd4j/jars/rrd4j-2.0.7.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/com.tinkerpop.blueprints/blueprints-neo4j-graph/jars/blueprints-neo4j-graph-1.0.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/org.fusesource.jansi/jansi/jars/jansi-1.5.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/asm/asm-analysis/jars/asm-analysis-3.2.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/asm/asm-util/jars/asm-util-3.2.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/asm/asm-tree/jars/asm-tree-3.2.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/asm/asm-commons/jars/asm-commons-3.2.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/asm/asm/jars/asm-3.2.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/antlr/antlr/jars/antlr-2.7.7.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.6.1.jar!/" />
+          <root url="jar://$DOTGRAILS$/ivy-cache/com.sun.jersey/jersey-bundle/jars/jersey-bundle-1.9.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
