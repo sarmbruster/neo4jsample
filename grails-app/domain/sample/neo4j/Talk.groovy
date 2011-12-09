@@ -1,6 +1,11 @@
 package sample.neo4j
 
+import groovy.transform.ToString
+
+@ToString(includes='title')
 class Talk {
+
+    static belongsTo = Attendee
 
     String title
     Date date
