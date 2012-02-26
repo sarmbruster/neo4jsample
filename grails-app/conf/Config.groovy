@@ -88,11 +88,10 @@ log4j = { root ->
     warn   'org.apache.commons',
            'org.apache.tomcat',
            'org.apache.catalina'
-    debug  'org.springframework.datastore',
+    warn  'org.springframework.datastore',
            'grails.gorm',
            'org.grails.datastore',
-           'org.neo4j.server',
-            'org.mortbay.jetty'
+           'org.neo4j.server'
 
     root.level = org.apache.log4j.Level.WARN
 }

@@ -23,49 +23,31 @@ grails.project.dependency.resolution = {
         mavenLocal()
         mavenCentral()
         mavenRepo 'http://m2.neo4j.org/releases'
-        mavenRepo 'http://tinkerpop.com/maven2'
-        //mavenRepo "http://snapshots.repository.codehaus.org"
-        //mavenRepo "http://repository.codehaus.org"
-        //mavenRepo "http://download.java.net/maven/2/"
-        //mavenRepo "http://repository.jboss.com/maven2/"
+//        mavenRepo 'http://tinkerpop.com/maven2'
     }
 
     dependencies {
 
-        compile(group:"org.neo4j.app", name:"neo4j-server", version:"1.6") /*{
-            excludes "slf4j-jdk14"
-            excludes "log4j-over-slf4j"
-            excludes "stax-api"
-        }*/
-        /*runtime(group:"org.neo4j.app", name:"neo4j-server", version:"1.5", branch:"static-web") {
-            excludes "slf4j-jdk14"
-            excludes "log4j-over-slf4j"
-            excludes "stax-api"
-        } */
-        runtime('com.sun.jersey:jersey-bundle:1.9') /*{
-            excludes "xml-apis"
-        }*/
+        // uncomment next three lines if you're using embedded/ha *and* you want the webadmin available
+//        compile(group:"org.neo4j.app", name:"neo4j-server", version:"1.6.1")
+//        runtime(group:"org.neo4j.app", name:"neo4j-server", version:"1.6.1", branch:"static-web")
+//        runtime('com.sun.jersey:jersey-bundle:1.9')
 
-        /* uncomment the following block to use neo4j via rest */
-        /*def neo4jRestExcludes = {
-            excludes  "lucene-core"
-            excludes  "neo4j-lucene-index"
-            excludes  "neo4j-kernel"
-		}
-        compile("org.neo4j:neo4j-rest-graphdb:0.1-SNAPSHOT", neo4jRestExcludes) // excluded as of now since snapshot is not available via a m2 repo*/
+
+        // uncomment following line if type=rest is used in DataSource.groovy
+        compile("org.neo4j:neo4j-rest-graphdb:1.6")
     }
 
 	 plugins {
-		  runtime ":neo4j:1.0.0.M1"
-			runtime ":jquery:1.7.1"
-        runtime ":resources:1.1.6"
+         runtime ":neo4j:1.0.0.M1"
+         runtime ":jquery:1.7.1"
+         runtime ":resources:1.1.6"
 
-        // Uncomment these (or add new ones) to enable additional resources capabilities
-        //runtime ":zipped-resources:1.0"
-        //runtime ":cached-resources:1.0"
-        //runtime ":yui-minify-resources:0.1.4"
+         // Uncomment these (or add new ones) to enable additional resources capabilities
+         //runtime ":zipped-resources:1.0"
+         //runtime ":cached-resources:1.0"
+         //runtime ":yui-minify-resources:0.1.4"
 
-        build ":tomcat:$grailsVersion"
-
-    }
+         build ":tomcat:$grailsVersion"
+     }
 }
