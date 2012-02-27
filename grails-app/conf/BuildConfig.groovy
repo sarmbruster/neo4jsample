@@ -49,8 +49,8 @@ grails.project.dependency.resolution = {
          //runtime ":yui-minify-resources:0.1.4"
 
          build ":tomcat:$grailsVersion"
-         compile ':heroku:1.0.1'
-         compile ':cloud-support:1.0.8'
-         compile ':webxml:1.4.1'
+//         compile ':heroku:1.0.1'
+//         compile ':cloud-support:1.0.8'
+//         compile ':webxml:1.4.1'
      }
 }
