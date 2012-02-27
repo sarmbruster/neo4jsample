@@ -22,7 +22,7 @@ grails {
         // NB: params are not allowed when using REST
 
         // type="rest
-        // location = "http://localhost:7474/db/data/"
+        location = System.getenv('NEO4J_REST_URL') ?: "http://localhost:7474/db/data/"
 
         // 3) HA embedded
         // use a in-JVM Neo4j instance being part of a HA cluster
