@@ -12,6 +12,10 @@ class SpeakerController {
         render Speaker.where { name=='Peter'}.list()
     }
 
+    def cypher() {
+        render Speaker.cypherStatic("start n=node({this}) match n-[:INSTANCE]->m return m")
+    }
+
     def traverse() {
         render Speaker.traverseStatic(
 

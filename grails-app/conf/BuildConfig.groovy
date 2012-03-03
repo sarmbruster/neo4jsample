@@ -39,7 +39,8 @@ grails.project.dependency.resolution = {
     }
 
 	 plugins {
-         runtime ":neo4j:1.0.0.M1"
+         //runtime ":neo4j:1.0.0.M1"
+         //runtime ":neo4j:1.0.0.SNAPSHOT"
          runtime ":jquery:1.7.1"
          runtime ":resources:1.1.6"
 

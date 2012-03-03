@@ -17,12 +17,12 @@ grails {
         // when using a Neo4j server via rest REST uncomment the following line
         type = "rest"
         // options:
-        // location: URL of rest server
+        // location: URL of rest server, defaults to http://localhost:7474/db/data/
         // NB: if heroku is used just omit location, the plugin tries to use env.NEO4J_URL in this case
         // NB: params are not allowed when using REST
 
         // type="rest
-//        location = System.getenv('NEO4J_REST_URL') ?: "http://localhost:7474/db/data/"
+        // location = "http://localhost:7474/db/data/"
 
         // 3) HA embedded
         // use a in-JVM Neo4j instance being part of a HA cluster
