@@ -8,14 +8,14 @@ grails {
         // options:
         // location: the path where Neo4j is stored, defaults to "data/neo4j"
         // params: optional map passed to EmbeddedGraphDatabase
-        // type = "embedded"
+        type = "embedded"
         // location = "data/neo4j"
         // params = [:]
 
 
         // 2) rest
         // when using a Neo4j server via rest REST uncomment the following line
-        type = "rest"
+        // type = "rest"
         // options:
         // location: URL of rest server, defaults to http://localhost:7474/db/data/
         // NB: if heroku is used just omit location, the plugin tries to use env.NEO4J_URL in this case
