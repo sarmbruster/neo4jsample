@@ -6,7 +6,7 @@ grails.project.test.reports.dir = "target/test-reports"
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
     inherits("global") {
-        excludes 'xml-apis', 'netty', 'stax-api', 'slf4j-jdk14','log4j-over-slf4j'
+        excludes 'xml-apis', 'netty', 'stax-api', 'slf4j-jdk14','log4j-over-slf4j', 'logback-classic'
         // uncomment to disable ehcache
         // excludes 'ehcache'
     }
@@ -32,11 +32,11 @@ grails.project.dependency.resolution = {
         compile("org.neo4j:neo4j-community:$neo4jVerison")
 
         // uncomment next three lines if you're using embedded/ha *and* you want the webadmin available
-        /*compile(group:"org.neo4j.app", name:"neo4j-server", version:neo4jVerison)
+        compile(group:"org.neo4j.app", name:"neo4j-server", version:neo4jVerison)
         runtime(group:"org.neo4j.app", name:"neo4j-server", version:neo4jVerison, branch:"static-web")
 			//runtime (group:"org.neo4j", name:"neo4j-shell", version:""1.8.M07")
         runtime('com.sun.jersey:jersey-server:1.9')
-        runtime('com.sun.jersey:jersey-core:1.9')*/
+        runtime('com.sun.jersey:jersey-core:1.9')
 
         // uncomment following line if type=rest is used in DataSource.groovy
         //compile "org.neo4j:neo4j-rest-graphdb:1.8.M07"
@@ -48,6 +48,7 @@ grails.project.dependency.resolution = {
          runtime ":neo4j:1.0.0.M2"
          runtime ":jquery:1.7.1"
          runtime ":resources:1.1.6"
+         runtime ":spock:0.6"
          runtime ":spock:0.6"
 
          // Uncomment these (or add new ones) to enable additional resources capabilities
