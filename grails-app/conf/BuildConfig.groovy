@@ -13,7 +13,6 @@ grails.project.dependency.resolution = {
     log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     repositories {
         inherits true
-        mavenLocal()
         grailsPlugins()
         grailsHome()
         grailsCentral()
@@ -21,6 +20,7 @@ grails.project.dependency.resolution = {
         // uncomment the below to enable remote dependency resolution
         // from public Maven repositories
         //flatDir name:'myRepo', dirs:'/abc/def'
+        mavenLocal()
         mavenCentral()
         mavenRepo 'http://m2.neo4j.org/releases'
 //        mavenRepo 'http://tinkerpop.com/maven2'
@@ -56,6 +56,7 @@ grails.project.dependency.resolution = {
          //runtime ":cached-resources:1.0"
          //runtime ":yui-minify-resources:0.1.4"
 
+         build ":svn:1.0.2"
          build ":tomcat:$grailsVersion"
 //         compile ':heroku:1.0.1'
 //         compile ':cloud-support:1.0.8'
