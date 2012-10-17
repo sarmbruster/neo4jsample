@@ -26,7 +26,7 @@ grails.project.dependency.resolution = {
 //        mavenRepo 'http://tinkerpop.com/maven2'
     }
 
-    neo4jVerison="1.8.M07"
+    neo4jVerison="1.8"
     dependencies {
 
         compile("org.neo4j:neo4j-community:$neo4jVerison")
@@ -34,6 +34,7 @@ grails.project.dependency.resolution = {
         // uncomment next three lines if you're using embedded/ha *and* you want the webadmin available
         compile(group:"org.neo4j.app", name:"neo4j-server", version:neo4jVerison)
         runtime(group:"org.neo4j.app", name:"neo4j-server", version:neo4jVerison, branch:"static-web")
+        compile(group:"org.neo4j", name:"neo4j-graphviz", version: neo4jVerison)
 			//runtime (group:"org.neo4j", name:"neo4j-shell", version:""1.8.M07")
         runtime('com.sun.jersey:jersey-server:1.9')
         runtime('com.sun.jersey:jersey-core:1.9')
@@ -45,10 +46,10 @@ grails.project.dependency.resolution = {
     }
 
 	 plugins {
-         runtime ":neo4j:1.0.0.M2"
+         //runtime ":neo4j:1.0.0.SNAPSHOT"
+         runtime ":neo4j:1.0.0.M3"
          runtime ":jquery:1.7.1"
          runtime ":resources:1.1.6"
-         runtime ":spock:0.6"
          runtime ":spock:0.6"
 
          // Uncomment these (or add new ones) to enable additional resources capabilities
@@ -56,7 +57,7 @@ grails.project.dependency.resolution = {
          //runtime ":cached-resources:1.0"
          //runtime ":yui-minify-resources:0.1.4"
 
-         build ":svn:1.0.2"
+         //build ":svn:1.0.2"
          build ":tomcat:$grailsVersion"
 //         compile ':heroku:1.0.1'
 //         compile ':cloud-support:1.0.8'
