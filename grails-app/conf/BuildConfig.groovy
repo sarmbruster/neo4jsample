@@ -23,6 +23,7 @@ grails.project.dependency.resolution = {
         mavenLocal()
         mavenCentral()
         mavenRepo 'http://m2.neo4j.org/releases'
+        mavenRepo "https://repo.springsource.org/repo"
 //        mavenRepo 'http://tinkerpop.com/maven2'
     }
 
@@ -51,6 +52,7 @@ grails.project.dependency.resolution = {
          runtime ":jquery:1.7.1"
          runtime ":resources:1.1.6"
          runtime ":spock:0.6"
+         compile ':cloud-foundry:1.2.3'
 
          // Uncomment these (or add new ones) to enable additional resources capabilities
          //runtime ":zipped-resources:1.0"

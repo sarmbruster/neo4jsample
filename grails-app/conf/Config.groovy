@@ -54,7 +54,8 @@ grails.exceptionresolver.params.exclude = ['password']
 // set per-environment serverURL stem for creating absolute links
 environments {
     production {
-        grails.serverURL = "http://neo4j-grails-demo.herokuapp.com"
+        //grails.serverURL = "http://neo4j-grails-demo.herokuapp.com"
+        grails.serverURL = "http://neo4jgrailssample.cloudfoundry.com"
     }
     development {
         grails.serverURL = "http://localhost:8080/${appName}"
@@ -95,3 +96,5 @@ log4j = { root ->
 
     root.level = org.apache.log4j.Level.WARN
 }
+
+grails.plugin.cloudfoundry.appname="neo4jgrailssample"
