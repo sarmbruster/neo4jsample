@@ -32,13 +32,15 @@ grails.project.dependency.resolution = {
 
         compile("org.neo4j:neo4j-community:$neo4jVerison")
 
-        // uncomment next three lines if you're using embedded/ha *and* you want the webadmin available
+        // next four lines are required if you're using embedded/ha *and* you want the webadmin available
         compile(group:"org.neo4j.app", name:"neo4j-server", version:neo4jVerison)
         runtime(group:"org.neo4j.app", name:"neo4j-server", version:neo4jVerison, branch:"static-web")
-        compile(group:"org.neo4j", name:"neo4j-graphviz", version: neo4jVerison)
-			//runtime (group:"org.neo4j", name:"neo4j-shell", version:""1.8.M07")
         runtime('com.sun.jersey:jersey-server:1.9')
         runtime('com.sun.jersey:jersey-core:1.9')
+
+        // add graphviz capabilities
+        compile(group:"org.neo4j", name:"neo4j-graphviz", version: neo4jVerison)
+			//runtime (group:"org.neo4j", name:"neo4j-shell", version:""1.8.M07")
 
         // uncomment following line if type=rest is used in DataSource.groovy
         //compile "org.neo4j:neo4j-rest-graphdb:1.8.M07"
