@@ -11,14 +11,8 @@ class SpeakerController {
 
     def scaffold = true
 
-    def graphDatabaseService
-
     def search() {
         render Speaker.where { name=='Peter'}.list()
-    }
-
-    def cypher() {
-        render Speaker.cypherStatic("start n=node({this}) match n-[:INSTANCE]->m return m")
     }
 
     def traverse() {
@@ -33,7 +27,7 @@ class SpeakerController {
         )
     }
 
-    def massCreate() {
+    /*def massCreate() {
         def time = performanceService.massCreate(params.int("id"))
         render "done in $time"
     }
@@ -41,27 +35,7 @@ class SpeakerController {
     def count() {
         def result = performanceService.count()
         render "couned ${result[0]} in ${result[1]} [ms]"
-    }
-
-    def info() {
-        def file = File.createTempFile("temp", ".dot")
-
-        OutputStream out = new FileOutputStream(file);
-        GraphvizWriter writer = new GraphvizWriter();
-        writer.emit(out, Walker.fullGraph(graphDatabaseService));
-        out.close();
-
-        def proc = "/usr/bin/dot -Tsvg $file.absolutePath".execute()
-        proc.waitFor()
-
-        file.delete()
-        def svg = proc.in.text
-
-        response.contentType = "image/svg+xml"
-        response.contentLength = svg.size()
-        response.outputStream << svg
-        response.outputStream.flush()
-    }
+    }*/
 
     def commonTalks() {
         response.contentType = "text/plain"
