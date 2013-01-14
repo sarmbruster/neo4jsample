@@ -1,4 +1,4 @@
-//grails.plugin.location."neo4j" = "../neo4j"
+grails.plugin.location."neo4j" = "../grails-data-mapping/grails-plugins/neo4j"
 grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
@@ -13,15 +13,15 @@ grails.project.dependency.resolution = {
     log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     repositories {
         inherits true
-        grailsPlugins()
-        grailsHome()
-        grailsCentral()
+        //grailsPlugins()
+        //grailsHome()
+        //grailsCentral()
 
         // uncomment the below to enable remote dependency resolution
         // from public Maven repositories
         //flatDir name:'myRepo', dirs:'/abc/def'
-        mavenLocal()
-        mavenCentral()
+        //mavenLocal()
+        //mavenCentral()
         mavenRepo 'http://m2.neo4j.org/releases'
         mavenRepo "https://repo.springsource.org/repo"
 //        mavenRepo 'http://tinkerpop.com/maven2'
@@ -50,7 +50,7 @@ grails.project.dependency.resolution = {
 
 	 plugins {
          //runtime ":neo4j:1.0.0.SNAPSHOT"
-         runtime ":neo4j:1.0.0.M3"
+         //runtime ":neo4j:1.0.0.M3"
          runtime ":jquery:1.7.1"
          runtime ":resources:1.1.6"
          runtime ":spock:0.6"

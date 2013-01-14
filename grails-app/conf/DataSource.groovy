@@ -21,7 +21,7 @@ grails {
         // NB: if heroku is used just omit location, the plugin tries to use env.NEO4J_URL in this case
         // NB: params are not allowed when using REST
 
-        // type="rest
+        // type="rest"
         // location = "http://localhost:7474/db/data/"
 
         // 3) HA embedded
