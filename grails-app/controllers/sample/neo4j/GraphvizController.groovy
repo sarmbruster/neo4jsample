@@ -24,7 +24,7 @@ class GraphvizController {
         if (dotBinaryFile.exists() && dotBinaryFile.canExecute()) {
 
             def proc =  "${DOT_BINARY} -Tsvg ${dotFile.absolutePath}".execute()
-            proc.waitFor()
+//            proc.waitFor()
             def svg = proc.in.text
 
             response.contentType = "image/svg+xml"
