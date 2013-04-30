@@ -37,7 +37,11 @@ grails.project.dependency.resolution = {
 
         // next four lines are required if you're using embedded/ha *and* you want the webadmin available
         compile(group:"org.neo4j.app", name:"neo4j-server", version:neo4jVerison)
-        runtime(group:"org.neo4j.app", name:"neo4j-server", version:neo4jVerison, branch:"static-web")
+
+        // grails dependencies do not properly support maven classifiers, therefor we'll copy that
+        // dependency to lib directory
+        //runtime(group:"org.neo4j.app", name:"neo4j-server", version:neo4jVerison, classifier:"static-web")
+
         runtime('com.sun.jersey:jersey-server:1.9')
         runtime('com.sun.jersey:jersey-core:1.9')
 
@@ -48,13 +52,15 @@ grails.project.dependency.resolution = {
         // uncomment following line if type=rest is used in DataSource.groovy
         //compile "org.neo4j:neo4j-rest-graphdb:1.8.M07"
 
-        //test 'org.databene:contiperf:2.0.0'
+        test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
     }
 
 	 plugins {
          runtime ":jquery:1.7.1"
          runtime ":resources:1.1.6"
-         runtime ":spock:0.6"
+         test(":spock:0.7") {
+             exclude "spock-grails-support"
+         }
          // compile ":geb:0.9.0-RC-1"
 
          // Uncomment these (or add new ones) to enable additional resources capabilities
