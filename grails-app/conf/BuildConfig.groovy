@@ -11,6 +11,9 @@ grails.project.dependency.resolution = {
         // excludes 'ehcache'
     }
     log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
+    checksums true // Whether to verify checksums on resolve
+    legacyResolve true // whether to do a secondary resolve on plugin installation, not advised and here for backwards compatibility
+
     repositories {
         inherits true
         //grailsPlugins()
@@ -22,15 +25,15 @@ grails.project.dependency.resolution = {
         //flatDir name:'myRepo', dirs:'/abc/def'
         //mavenLocal()
         //mavenCentral()
-        mavenRepo 'http://m2.neo4j.org/releases'
-        mavenRepo "https://repo.springsource.org/repo"
+        //mavenRepo 'http://m2.neo4j.org/releases'
+        //mavenRepo "https://repo.springsource.org/repo"
 //        mavenRepo 'http://tinkerpop.com/maven2'
     }
 
-    neo4jVerison="1.8"
+    neo4jVerison="1.8.2"
     dependencies {
 
-        compile("org.neo4j:neo4j-community:$neo4jVerison")
+        //compile("org.neo4j:neo4j-community:$neo4jVerison")
 
         // next four lines are required if you're using embedded/ha *and* you want the webadmin available
         compile(group:"org.neo4j.app", name:"neo4j-server", version:neo4jVerison)
@@ -49,12 +52,10 @@ grails.project.dependency.resolution = {
     }
 
 	 plugins {
-         //runtime ":neo4j:1.0.0.SNAPSHOT"
-         //runtime ":neo4j:1.0.0.M3"
          runtime ":jquery:1.7.1"
          runtime ":resources:1.1.6"
          runtime ":spock:0.6"
-         compile ':cloud-foundry:1.2.3'
+         // compile ":geb:0.9.0-RC-1"
 
          // Uncomment these (or add new ones) to enable additional resources capabilities
          //runtime ":zipped-resources:1.0"
