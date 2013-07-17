@@ -46,15 +46,19 @@ grails.project.dependency.resolution = {
         //compile "org.neo4j:neo4j-rest-graphdb:1.8.M07"
 
         //test 'org.databene:contiperf:2.0.0'
+		test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
     }
 
 	 plugins {
          //runtime ":neo4j:1.0.0.SNAPSHOT"
-         runtime ":neo4j:1.0.0.M3"
-         runtime ":jquery:1.7.1"
-         runtime ":resources:1.1.6"
-         runtime ":spock:0.6"
+         runtime ":neo4j:1.0.0"
+         runtime ":jquery:1.10.2"
+         runtime ":resources:1.2"
          compile ':cloud-foundry:1.2.3'
+
+		 test(":spock:0.7") {
+			 exclude "spock-grails-support"
+		 }
 
          // Uncomment these (or add new ones) to enable additional resources capabilities
          //runtime ":zipped-resources:1.0"
