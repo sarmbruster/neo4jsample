@@ -10,6 +10,7 @@ Visit the [grails-data-mapping](http://springsource.github.com/grails-data-mappi
 * set in `grails-app/conf/DataSource.groovy`: `type = "rest"`
 * set up environment variables, e.g. on Linux:
 
+.
 
     export NEO4J_HOST="<hostname provided by graphene>" # e.g. neo4jsample.sb01.stations.graphenedb.com"
     export NEO4J_LOGIN="<username provided by graphene>"
