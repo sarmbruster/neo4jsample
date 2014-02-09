@@ -86,6 +86,10 @@ grails.project.dependency.resolution = {
          }
          // compile ":geb:0.9.0-RC-1"
 
+		 test(":spock:0.7") {
+			 exclude "spock-grails-support"
+		 }
+
          // Uncomment these (or add new ones) to enable additional resources capabilities
          //runtime ":zipped-resources:1.0"
          //runtime ":cached-resources:1.0"
