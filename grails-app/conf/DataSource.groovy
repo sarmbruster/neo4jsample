@@ -8,7 +8,7 @@ grails {
         // options:
         // location: the path where Neo4j is stored, defaults to "data/neo4j"
         // params: optional map passed to EmbeddedGraphDatabase
-        type = "embedded"
+        // type = "embedded"
         // location = "data/neo4j"
         // params = [:]
 
@@ -21,8 +21,8 @@ grails {
         // NB: if heroku is used just omit location, the plugin tries to use env.NEO4J_URL in this case
         // NB: params are not allowed when using REST
 
-        // type="rest"
-        // location = "http://localhost:7474/db/data/"
+        type="rest"
+         //location = "http://localhost:7474/db/data/"
 
         // 3) HA embedded
         // use a in-JVM Neo4j instance being part of a HA cluster

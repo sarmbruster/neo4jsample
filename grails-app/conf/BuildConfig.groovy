@@ -1,8 +1,31 @@
-grails.plugin.location."neo4j" = "../grails-data-mapping/grails-plugins/neo4j"
+//grails.plugin.location."neo4j" = "../grails-data-mapping/grails-plugins/neo4j"
+grails.servlet.version = "3.0" // Change depending on target container compliance (2.5 or 3.0)
 grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
+grails.project.work.dir = "target/work"
+grails.project.target.level = 1.6
+grails.project.source.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
+
+grails.project.fork = [
+    // configure settings for compilation JVM, note that if you alter the Groovy version forked compilation is required
+    //  compile: [maxMemory: 256, minMemory: 64, debug: false, maxPerm: 256, daemon:true],
+
+    // configure settings for the test-app JVM, uses the daemon by default
+    test: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256, daemon:true],
+    // configure settings for the run-app JVM
+
+    // TODO: workaround, for Neo4j plugin forked mode is currently not working. Reason: Neo4jSpringConfigurer is using
+    //    "as Classs" which causes ClassLoader issues
+    run: false, //[maxMemory: 768, minMemory: 64, debug: true, maxPerm: 256, forkReserve:false],
+    // configure settings for the run-war JVM
+    war: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256, forkReserve:false],
+    // configure settings for the Console UI JVM
+    console: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256]
+]
+
+grails.project.dependency.resolver = "maven" 
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
     inherits("global") {
@@ -12,52 +35,52 @@ grails.project.dependency.resolution = {
     }
     log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
-    legacyResolve true // whether to do a secondary resolve on plugin installation, not advised and here for backwards compatibility
+    legacyResolve false // whether to do a secondary resolve on plugin installation, not advised and here for backwards compatibility
 
     repositories {
         inherits true
-        //grailsPlugins()
-        //grailsHome()
-        //grailsCentral()
+
+        grailsPlugins()
+        grailsHome()
+        mavenLocal()
+        grailsCentral()
+        mavenCentral()
 
         // uncomment the below to enable remote dependency resolution
         // from public Maven repositories
         //flatDir name:'myRepo', dirs:'/abc/def'
-        //mavenLocal()
-        //mavenCentral()
-        //mavenRepo 'http://m2.neo4j.org/releases'
-        //mavenRepo "https://repo.springsource.org/repo"
-//        mavenRepo 'http://tinkerpop.com/maven2'
+        mavenRepo 'http://m2.neo4j.org/releases'
     }
 
-    neo4jVerison="1.8.2"
+    neo4jVerison="1.9.6"
     dependencies {
 
         //compile("org.neo4j:neo4j-community:$neo4jVerison")
 
         // next four lines are required if you're using embedded/ha *and* you want the webadmin available
-        compile(group:"org.neo4j.app", name:"neo4j-server", version:neo4jVerison)
+        //compile(group:"org.neo4j.app", name:"neo4j-server", version:neo4jVerison)
 
         // grails dependencies do not properly support maven classifiers, therefor we'll copy that
         // dependency to lib directory
         //runtime(group:"org.neo4j.app", name:"neo4j-server", version:neo4jVerison, classifier:"static-web")
 
-        runtime('com.sun.jersey:jersey-server:1.9')
-        runtime('com.sun.jersey:jersey-core:1.9')
+        //runtime('com.sun.jersey:jersey-server:1.9')
+        //runtime('com.sun.jersey:jersey-core:1.9')
 
         // add graphviz capabilities
         compile(group:"org.neo4j", name:"neo4j-graphviz", version: neo4jVerison)
-			//runtime (group:"org.neo4j", name:"neo4j-shell", version:""1.8.M07")
+			  //runtime (group:"org.neo4j", name:"neo4j-shell", version:""1.8.M07")
 
         // uncomment following line if type=rest is used in DataSource.groovy
-        //compile "org.neo4j:neo4j-rest-graphdb:1.8.M07"
+        runtime "org.neo4j:neo4j-rest-graphdb:1.9"
 
         test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
     }
 
 	 plugins {
-         runtime ":jquery:1.7.1"
-         runtime ":resources:1.1.6"
+         compile ":neo4j:1.1.1"
+         runtime ":jquery:1.10.2.2"
+         runtime ":resources:1.2.1"
          test(":spock:0.7") {
              exclude "spock-grails-support"
          }
@@ -69,8 +92,7 @@ grails.project.dependency.resolution = {
          //runtime ":yui-minify-resources:0.1.4"
 
          //build ":svn:1.0.2"
-         build ":tomcat:$grailsVersion"
-//         compile ':heroku:1.0.1'
+         build ":tomcat:7.0.50"
 //         compile ':cloud-support:1.0.8'
 //         compile ':webxml:1.4.1'
      }

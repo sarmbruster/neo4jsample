@@ -5,3 +5,4 @@ data/
 *.iml
 *.ipr
 *.log
+/.idea
