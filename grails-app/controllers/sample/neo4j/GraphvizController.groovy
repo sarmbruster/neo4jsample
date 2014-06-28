@@ -6,7 +6,13 @@ import org.neo4j.walk.Walker
 class GraphvizController {
 
     static final String DOT_BINARY = "/usr/bin/dot"
+    static File dotBinaryFile = new File(DOT_BINARY)
     def graphDatabaseService
+
+    def beforeInterceptor = {
+        assert graphDatabaseService !=  null, "graphDatabaseService is null, most likely since you're running Neo4j remotely"
+        assert dotBinaryFile.exists() && dotBinaryFile.canExecute(), "$DOT_BINARY not found or not executable"
+    }
 
     /**
      * be careful, if your graph grows larger than a handful of nodes,
@@ -15,27 +21,34 @@ class GraphvizController {
      */
     def index() {
 
-        File dotFile = File.createTempFile("temp", ".dot")
+        def tx = graphDatabaseService.beginTx()
+        try {
 
-        GraphvizWriter graphvizWriter = new GraphvizWriter()
-        graphvizWriter.emit(dotFile, Walker.fullGraph(graphDatabaseService))
+            File dotFile = File.createTempFile("temp", ".dot")
 
-        def dotBinaryFile = new File(DOT_BINARY)
-        if (dotBinaryFile.exists() && dotBinaryFile.canExecute()) {
+            GraphvizWriter graphvizWriter = new GraphvizWriter()
+            graphvizWriter.emit(dotFile, Walker.fullGraph(graphDatabaseService))
 
-            def proc =  "${DOT_BINARY} -Tsvg ${dotFile.absolutePath}".execute()
+            if (dotBinaryFile.exists() && dotBinaryFile.canExecute()) {
+
+                def proc =  "${DOT_BINARY} -Tsvg ${dotFile.absolutePath}".execute()
 //            proc.waitFor()
-            def svg = proc.in.text
+                def svg = proc.in.text
 
-            response.contentType = "image/svg+xml"
-            response.contentLength = svg.size()
-            response.outputStream << svg
-            response.outputStream.flush()
-        } else {
-            log.warn("$DOT_BINARY not found or not executable. Install graphviz package, e.g. apt-get install graphviz on Debian/Ubuntu")
-            response.contentType = "text/plain"
-            render dotFile.text
+                response.contentType = "image/svg+xml"
+                response.contentLength = svg.size()
+                response.outputStream << svg
+                response.outputStream.flush()
+            } else {
+                log.warn("$DOT_BINARY not found or not executable. Install graphviz package, e.g. apt-get install graphviz on Debian/Ubuntu")
+                response.contentType = "text/plain"
+                render dotFile.text
+            }
+            dotFile.delete()
+            tx.success()
+        } finally {
+            tx.close()
         }
-        dotFile.delete()
+
     }
 }

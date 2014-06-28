@@ -49,13 +49,16 @@ grails.project.dependency.resolution = {
         // uncomment the below to enable remote dependency resolution
         // from public Maven repositories
         //flatDir name:'myRepo', dirs:'/abc/def'
-        mavenRepo 'http://m2.neo4j.org/releases'
+        mavenRepo 'http://m2.neo4j.org/content/repositories/releases/'
     }
 
-    neo4jVerison="1.9.6"
+    neo4jVerison="2.0.3"
     dependencies {
 
-        //compile("org.neo4j:neo4j-community:$neo4jVerison")
+        compile("org.neo4j:neo4j-community:$neo4jVerison")
+
+        // this is required if DataSource.groovy uses url = "jdbc:neo4j:mem"
+        //runtime(group:"org.neo4j", name:"neo4j-kernel", version:neo4jVerison, classifier:"tests")
 
         // next four lines are required if you're using embedded/ha *and* you want the webadmin available
         //compile(group:"org.neo4j.app", name:"neo4j-server", version:neo4jVerison)
@@ -69,16 +72,17 @@ grails.project.dependency.resolution = {
 
         // add graphviz capabilities
         compile(group:"org.neo4j", name:"neo4j-graphviz", version: neo4jVerison)
-			  //runtime (group:"org.neo4j", name:"neo4j-shell", version:""1.8.M07")
+        runtime (group:"org.neo4j", name:"neo4j-shell", version: neo4jVerison)
 
         // uncomment following line if type=rest is used in DataSource.groovy
-        runtime "org.neo4j:neo4j-rest-graphdb:1.9"
+        //runtime "org.neo4j:neo4j-rest-graphdb:1.9"
 
         test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
     }
 
 	 plugins {
-         compile ":neo4j:1.1.1"
+         compile ":neo4j:2.0.0-M02"
+         compile ":scaffolding:2.0.1"
          runtime ":jquery:1.10.2.2"
          runtime ":resources:1.2.1"
          test(":spock:0.7") {
@@ -86,16 +90,11 @@ grails.project.dependency.resolution = {
          }
          // compile ":geb:0.9.0-RC-1"
 
-		 test(":spock:0.7") {
-			 exclude "spock-grails-support"
-		 }
-
          // Uncomment these (or add new ones) to enable additional resources capabilities
          //runtime ":zipped-resources:1.0"
          //runtime ":cached-resources:1.0"
          //runtime ":yui-minify-resources:0.1.4"
 
-         //build ":svn:1.0.2"
          build ":tomcat:7.0.50"
 //         compile ':cloud-support:1.0.8'
 //         compile ':webxml:1.4.1'
