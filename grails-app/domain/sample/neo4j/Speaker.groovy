@@ -8,5 +8,9 @@ class Speaker {
     String name
 
     static constraints = {
+        name unique:true
     }
+
+    static mapWith = "neo4j"
+
 }

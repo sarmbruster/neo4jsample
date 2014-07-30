@@ -12,4 +12,6 @@ class Attendee {
 
     static constraints = {
     }
+
+    static mapWith = "neo4j"
 }

@@ -1,28 +1,59 @@
-dataSource {
-    pooled = true
-    driverClassName = "org.neo4j.jdbc.Driver"
+grails {
+    neo4j {
 
-    // use impermanent graph db, this requires an additional dependency in BuildConfig.groovy:
-    // runtime(group:"org.neo4j", name:"neo4j-kernel", version:neo4jVerison, classifier:"tests")
-    // url = "jdbc:neo4j:mem"
+        // neo4j jdbc url, see https://github.com/neo4j-contrib/neo4j-jdbc for syntax
+        // this configures a embedded instance
+        url = "jdbc:neo4j:instance:dummy"
 
-    // uncomment for embedded usage
-    url = "jdbc:neo4j:instance:test"
+        // for remote usage:
+        // url = "jdbc:neo4j://localhost:7474/"
+        // optional: if authentication extension is used on Neo4j server, provide credentials:
+        //    username = "neo4j"
+        //    password = "<mypasswd>"
 
-    // use remote database
-    //url = "jdbc:neo4j://localhost:7474/"
+        // any other stuff below is just for embedded instances
 
-    // disabling autoCommit is crucial!
-    properties = [
-            defaultAutoCommit: false
-    ]
+        // configure embedded mode, if true HA is used, false refers to single instance
+        // NB: for HA you need to configure dbProperties
+        // NB: for HA you need to add dependencies
+        //ha = false
 
-//    username = "sa"
-//    password = ""
+        // set graph.db location, defaults to data/graph.db
+        // location = "<path for graph.db>"
+
+        // put any Neo4j config options (normally residing in neo4j.properties) here
+        // NB: this does of course not work if url is a remote connection
+        dbProperties = [
+
+            // allow_store_upgrade: true,
+            // remote_shell_enabled: true,
+
+            // sample settings for ha=true
+            // 'ha.server_id' : 1,
+            // 'ha.initial_hosts': "localhost:5001-5003",
+        ]
+    }
 }
 
+hibernate {
+    cache.use_second_level_cache = true
+    cache.use_query_cache = false
+    cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory' // Hibernate 3
+//    cache.region.factory_class = 'org.hibernate.cache.ehcache.EhCacheRegionFactory' // Hibernate 4
+    singleSession = true // configure OSIV singleSession mode
+}
+
+dataSource {
+    pooled = true
+    jmxExport = true
+    driverClassName = "org.h2.Driver"
+    username = "sa"
+    password = ""
+}
+
+
 // environment specific settings
-/*environments {
+environments {
     development {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
@@ -52,4 +83,4 @@ dataSource {
             }
         }
     }
-} */
+}

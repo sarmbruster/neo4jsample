@@ -16,4 +16,7 @@ class Talk {
 
     static constraints = {
     }
+
+    static mapWith = "neo4j"
+
 }

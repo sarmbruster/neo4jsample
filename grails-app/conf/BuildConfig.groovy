@@ -1,4 +1,4 @@
-//grails.plugin.location."neo4j" = "../grails-data-mapping/grails-plugins/neo4j"
+grails.plugin.location."neo4j" = "../grails-data-mapping/grails-plugins/neo4j"
 grails.servlet.version = "3.0" // Change depending on target container compliance (2.5 or 3.0)
 grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
@@ -81,7 +81,7 @@ grails.project.dependency.resolution = {
     }
 
 	 plugins {
-         compile ":neo4j:2.0.0-M02"
+//         compile ":neo4j:2.0.0-M02"
          compile ":scaffolding:2.0.1"
          runtime ":jquery:1.10.2.2"
          runtime ":resources:1.2.1"
@@ -94,6 +94,8 @@ grails.project.dependency.resolution = {
          //runtime ":zipped-resources:1.0"
          //runtime ":cached-resources:1.0"
          //runtime ":yui-minify-resources:0.1.4"
+//         runtime ":hibernate:3.6.10.7"
+         // runtime ":hibernate4:4.1.11.6"
 
          build ":tomcat:7.0.50"
 //         compile ':cloud-support:1.0.8'
