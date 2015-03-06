@@ -54,7 +54,8 @@ grails.project.dependency.resolution = {
 
     neo4jVerison="2.0.3"
     dependencies {
-
+	//If using Groovy 2.4 uncomment the following line.
+	//compile 'org.codehaus.groovy:groovy-backports-compat23:2.3.5'
         compile("org.neo4j:neo4j-community:$neo4jVerison")
 
         // this is required if DataSource.groovy uses url = "jdbc:neo4j:mem"
